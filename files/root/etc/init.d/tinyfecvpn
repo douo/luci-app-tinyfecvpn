@@ -97,7 +97,6 @@ start_instance() {
         done < "$config_file"
 
 	procd_set_param command $cmd
-	setup_config "$config_file"
 	procd_set_param respawn
 	procd_set_param file "$config_file"
 	[ -n "$daemon_user" ] && procd_set_param user "$daemon_user" && _log "info" "running from ${daemon_user} user"
