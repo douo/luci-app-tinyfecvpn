@@ -36,7 +36,9 @@ create_config() {
         [ -n "$mode" ] && echo "--mode ${mode}" >> $config_file
         [ $mode -eq 1 -a  -n $mtu ] && echo "--mtu ${mtu}" >> $config_file
 
-        [ -n "$sock_buf" ] && echo "--sock-buf ${sock_buf}" >> $config_file
+        [ -n "$sock_buf" ] && echo "--sock-buf ${sock_buf}" >> $config_
+
+        [ $disable_fec -eq 1 ] && echo "--disable-fec" >> $config_file
 
 	[ -n "$log_level" ] && echo "--log-level ${log_level}" >> $config_file
 	echo "--disable-color" >> $config_file
@@ -63,6 +65,7 @@ validate_server_section() {
                 'mode:range(0,1)' \
                 'mtu:string' \
                 'sock_buf:range(10,10240)' \
+                'disable_fec:bool:0' \
 		'log_level:range(0,6)'
 }
 

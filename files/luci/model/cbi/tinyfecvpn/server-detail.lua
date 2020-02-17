@@ -73,9 +73,11 @@ o:depends("mode", "1")
 o.datatype = "uinteger"
 o.placeholder = 1250
 
-o = s:taboption("developer", Value, "sock-buf", translate("Sock Buf"), translate("Buf size for socket, >=10 and <=10240, unit: kbyte, default: 1024"))
+o = s:taboption("developer", Value, "sock_buf", translate("Sock Buf"), translate("Buf size for socket, >=10 and <=10240, unit: kbyte, default: 1024"))
 o.datatype = "range(10,10240)"
 o.placeholder = "1024"
+
+o = s:taboption("developer", Flag, "disable_fec", translate("Disable Fec"), translate("Completely disable fec, turn the program into a normal udp tunnel"))
 
 
 o = s:taboption("general", ListValue, "log_level", translate("Log Level"))
