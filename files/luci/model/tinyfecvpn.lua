@@ -21,9 +21,13 @@ end
 
 function get_version(name)
    local info = luci.util.split(luci.sys.exec("%s -h 2>/dev/null" %{name}), "\n")
-   local version = string.match(info[2], "git version:%s*(%w+)")
-   local build = string.match(info[2], "build date:%s(.+)")
-   return info[1] == "tinyFecVPN" and version or "", info[1] == "tinyFecVPN" and build or ""
+   if table.getn(info) > 3 then
+      local version = string.match(info[2], "git version:%s*(%w+)")
+      local build = string.match(info[2], "build date:%s(.+)")
+      return info[1] == "tinyFecVPN" and version or "", info[1] == "tinyFecVPN" and build or ""
+   else
+      return "",""
+   end
 end
 
 function get_config_option(option, default)

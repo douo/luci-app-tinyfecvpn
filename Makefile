@@ -58,6 +58,8 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/tinyfecvpn.*.lmo $(1)/usr/lib/lua/luci/i18n/
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller
 	$(INSTALL_DATA) ./files/luci/controller/*.lua $(1)/usr/lib/lua/luci/controller/
+	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/model
+	$(INSTALL_DATA) ./files/luci/model/*.lua $(1)/usr/lib/lua/luci/model/
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/model/cbi/tinyfecvpn
 	$(INSTALL_DATA) ./files/luci/model/cbi/tinyfecvpn/*.lua $(1)/usr/lib/lua/luci/model/cbi/tinyfecvpn/
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/tinyfecvpn
