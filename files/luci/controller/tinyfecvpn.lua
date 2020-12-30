@@ -11,18 +11,18 @@ function index()
        return
    end
 
-   entry({"admin", "vpn", "tinyfecvpn"},
+   entry({"admin", "services", "tinyfecvpn"},
       firstchild(),
       _("tinyFecVPN")).dependent = false
 
-   entry({"admin", "vpn", "tinyfecvpn", "settings"},
+   entry({"admin", "services", "tinyfecvpn", "settings"},
       cbi("tinyfecvpn/settings"), _("Settings"), 1)
 
-   entry({"admin", "vpn", "tinyfecvpn", "servers"},
+   entry({"admin", "services", "tinyfecvpn", "servers"},
       arcombine(cbi("tinyfecvpn/servers"),cbi("tinyfecvpn/server-detail")), -- Create a combined dispatching target for non argv and argv requests.
       _("Server Manager"), 2).leaf = true
 
-   entry({"admin", "vpn", "tinyfecvpn", "status"}, call("action_status"))
+   entry({"admin", "services", "tinyfecvpn", "status"}, call("action_status"))
 end
 
 
