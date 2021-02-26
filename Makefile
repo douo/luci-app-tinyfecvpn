@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019-2020 Tiou <dourokinga@gmail.com>
+# Copyright (C) 2019-2021 Tiou <dourokinga@gmail.com>
 #
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
@@ -16,6 +16,8 @@ PKG_LICENSE_FILES:=LICENSE
 PKG_MAINTAINER:=Tiou <dourokinga@gmail.com>
 
 include $(INCLUDE_DIR)/package.mk
+
+PKG_BUILD_DEPENDS:=luci
 
 define Package/$(PKG_NAME)
 	SECTION:=luci
