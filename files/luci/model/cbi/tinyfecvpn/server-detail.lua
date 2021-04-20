@@ -14,7 +14,7 @@ local log_level = {
    "trace",
 }
 m = Map("tinyfecvpn", "%s - %s" % { translate("tinyFecVPN"), translate("Edit Server") })
-m.redirect = dsp.build_url("admin/vpn/tinyfecvpn/servers")
+m.redirect = dsp.build_url("admin/services/tinyfecvpn/servers")
 
 if m.uci:get("tinyfecvpn", sid) ~= "servers" then
 	luci.http.redirect(m.redirect)
